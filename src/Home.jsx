@@ -342,13 +342,15 @@ function Home({ data }) {
       </section>
 
       {/* Programmes Section */}
-      <section id="programmes" className="section container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Our <span className="text-gradient">Programmes</span></h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>Explore our diverse range of undergraduate courses designed to build a strong foundation for your career.</p>
+      <section id="programmes" className="programmes-section">
+        <div className="programmes-inner">
+        <div className="programmes-header">
+          <div className="programmes-eyebrow"><span /> Academic catalogue</div>
+          <h2>Find your <em>direction.</em></h2>
+          <p>Explore undergraduate programmes designed to turn curiosity into practical confidence.</p>
         </div>
         
-        <div className="carousel-grid" ref={programmesGridRef}>
+        <div className="carousel-grid programmes-grid" ref={programmesGridRef}>
           {programmes.map((prog, i) => {
             const cardColors = ['#4f46e5', '#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'];
             const color = cardColors[i % cardColors.length];
@@ -365,59 +367,40 @@ function Home({ data }) {
             const courseSlug = prog.name.toLowerCase().replace(/[\.\s]+/g, '-').replace(/^-|-$/g, '');
 
             return (
-              <Link to={`/course/${courseSlug}`} key={prog.id} style={{ textDecoration: 'none', display: 'block' }}>
+              <Link to={`/course/${courseSlug}`} key={prog.id} className="programme-link">
                 <motion.div
+                  className="programme-card"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   whileHover={{ y: -12, scale: 1.03 }}
-                  style={{ 
-                    background: 'var(--bg-card)',
-                    backdropFilter: 'var(--glass-blur)',
-                    WebkitBackdropFilter: 'var(--glass-blur)',
-                    borderRadius: '24px',
-                    position: 'relative', 
-                    overflow: 'hidden',
-                    boxShadow: '0 15px 35px -10px rgba(0,0,0,0.05)',
-                    border: '1px solid rgba(255,255,255,0.8)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    minHeight: '340px',
-                    cursor: 'pointer'
-                  }}
+                  style={{ '--course-color': color }}
                 >
                   {/* Course Image Header */}
-                  <div style={{ height: '160px', width: '100%', position: 'relative' }}>
-                    <img src={imagePath} alt={prog.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: `linear-gradient(to bottom, transparent, rgba(0,0,0,0.1))` }} />
+                  <div className="programme-image-wrap">
+                    <img src={imagePath} alt={prog.name} className="programme-image" />
+                    <span className="programme-number">0{i + 1}</span>
                   </div>
                   
-                  {/* Top Accent Line */}
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '5px', background: `linear-gradient(90deg, ${color}, transparent)`, zIndex: 10 }} />
-                  
-                  {/* Decorative Background Blob inside text area */}
-                  <div style={{ position: 'absolute', bottom: '-20%', right: '-20%', width: '150px', height: '150px', background: color, filter: 'blur(70px)', opacity: 0.1, zIndex: 0 }} />
-                  
                   {/* Text Content */}
-                  <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between', position: 'relative', zIndex: 2 }}>
-                    <div>
-                      <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: 'var(--text-primary)', fontWeight: 700, lineHeight: 1.3 }}>{prog.name}</h3>
-                    </div>
+                  <div className="programme-content">
+                    <h3>{prog.name}</h3>
                     
-                    <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-                      <span style={{ padding: '0.4rem 1rem', background: 'rgba(0,0,0,0.04)', color: 'var(--text-secondary)', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 600 }}>{prog.type}</span>
-                      <span style={{ padding: '0.4rem 1rem', background: `${color}15`, color: color, borderRadius: '30px', fontSize: '0.85rem', fontWeight: 600 }}>{prog.duration}</span>
+                    <div className="programme-meta">
+                      <span>{prog.type}</span>
+                      <span>{prog.duration}</span>
                     </div>
 
-                    <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: color, fontWeight: 'bold', fontSize: '0.95rem' }}>
-                      Explore Course <ArrowRight size={18} />
+                    <div className="programme-link-label">
+                      Explore course <ArrowRight size={17} />
                     </div>
                   </div>
                 </motion.div>
               </Link>
             );
           })}
+        </div>
         </div>
       </section>
 

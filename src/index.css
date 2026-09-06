@@ -102,6 +102,238 @@ h1, h2, h3, h4, h5, h6 {
   padding: 100px 0;
 }
 
+.programmes-section {
+  position: relative;
+  overflow: hidden;
+  padding: 112px 0 124px;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(79, 70, 229, 0.09), transparent 25%),
+    radial-gradient(circle at 92% 82%, rgba(14, 165, 233, 0.08), transparent 28%),
+    var(--bg-primary);
+  border-top: 1px solid rgba(79, 70, 229, 0.08);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.08);
+}
+
+.programmes-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 1px;
+  height: 100%;
+  background: rgba(79, 70, 229, 0.08);
+  transform: rotate(16deg) scaleY(1.2);
+}
+
+.programmes-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.programmes-header {
+  max-width: 720px;
+  padding: 0 2rem;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.programmes-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  color: var(--accent-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.programmes-eyebrow span {
+  width: 28px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.programmes-header h2 {
+  margin-bottom: 14px;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.programmes-header h2 em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.programmes-header p {
+  max-width: 530px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.programmes-grid {
+  max-width: 1400px;
+  padding: 0 2rem 2rem;
+  gap: 22px;
+}
+
+.programme-link {
+  display: block;
+  flex: 0 0 310px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.programme-card {
+  position: relative;
+  display: flex;
+  min-height: 386px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.programme-link:hover .programme-card {
+  border-color: var(--course-color);
+  box-shadow: 0 20px 40px -10px color-mix(in srgb, var(--course-color) 25%, rgba(0, 0, 0, 0.12));
+}
+
+.programme-image-wrap {
+  position: relative;
+  height: 174px;
+  overflow: hidden;
+  background: var(--course-color);
+}
+
+.programme-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0.94;
+  transition: transform 0.5s ease;
+}
+
+.programme-link:hover .programme-image {
+  transform: scale(1.06);
+}
+
+.programme-number {
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-style: normal;
+}
+
+.programme-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px 24px 22px;
+}
+
+.programme-content h3 {
+  max-width: 240px;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  line-height: 1.18;
+}
+
+.programme-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.programme-meta span {
+  padding: 5px 9px;
+  border: 1px solid rgba(71, 85, 105, 0.16);
+  border-radius: 30px;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.programme-meta span:last-child {
+  border-color: color-mix(in srgb, var(--course-color) 45%, white);
+  color: var(--course-color);
+}
+
+.programme-link-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--course-color);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.programme-link-label svg {
+  transition: transform 0.3s ease;
+}
+
+.programme-link:hover .programme-link-label svg {
+  transform: translateX(5px);
+}
+
+@media (max-width: 600px) {
+  .programmes-section {
+    padding: 78px 0 88px;
+  }
+
+  .programmes-header {
+    padding: 0 20px;
+    margin-bottom: 36px;
+  }
+
+  .programmes-header h2 {
+    font-size: 2.65rem;
+    letter-spacing: -1px;
+  }
+
+  .programmes-header p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .programmes-grid {
+    padding-right: 20px;
+    padding-left: 20px;
+    gap: 16px;
+  }
+
+  .programme-link {
+    flex-basis: 82vw;
+  }
+}
+
 .text-gradient {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
