@@ -657,8 +657,19 @@ function Home({ data }) {
                 <a href="#programmes" style={{ color: '#94a3b8', textDecoration: 'none' }}>Our Programmes</a>
                 <a href="#faculty" style={{ color: '#94a3b8', textDecoration: 'none' }}>Meet the Faculty</a>
                 <a href="#student-life" style={{ color: '#94a3b8', textDecoration: 'none' }}>Student Life</a>
-                <Link to="/course/bsc-computer-science" style={{ color: '#94a3b8', textDecoration: 'none' }}>B.Sc. Computer Science</Link>
-                <Link to="/course/bcom-general" style={{ color: '#94a3b8', textDecoration: 'none' }}>B.Com. General</Link>
+                {programmes.map((programme) => {
+                  const courseSlug = programme.name.toLowerCase().replace(/[.\s]+/g, '-').replace(/^-|-$/g, '');
+
+                  return (
+                    <Link
+                      key={programme.id}
+                      to={`/course/${courseSlug}`}
+                      style={{ color: '#94a3b8', textDecoration: 'none' }}
+                    >
+                      {programme.name}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
             
