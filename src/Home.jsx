@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MapPin, Phone, Mail, BookOpen, Users, Award, Building, ArrowRight, ChevronLeft, ChevronRight, Coffee, Wifi, Bus, Home as HomeIcon, Dumbbell, Palette } from 'lucide-react';
+import { MapPin, Phone, Mail, BookOpen, Users, Award, Building, ArrowRight, ChevronLeft, ChevronRight, Coffee, Wifi, Bus, Dumbbell, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './index.css';
 
@@ -354,7 +354,7 @@ function Home({ data }) {
             const color = cardColors[i % cardColors.length];
             const courseImages = {
               "B.Sc. Computer Science": "/courses/course_cs.png",
-              "B.Sc. Data Science": "/courses/course_data.png",
+              "B.Sc. Artificial Inteligence": "/courses/course_data.png",
               "B.Sc. Botany": "/courses/course_botany.png",
               "B.Sc. Chemistry": "/courses/course_chem.png",
               "B.Com. General": "/courses/course_bcom.png",
@@ -624,7 +624,6 @@ function Home({ data }) {
             {[
               { icon: <Coffee size={32} />, title: 'Modern Cafeteria', desc: 'Hygienic and diverse food courts.' },
               { icon: <Wifi size={32} />, title: 'High-Speed Wi-Fi', desc: '24/7 seamless campus-wide connectivity.' },
-              { icon: <HomeIcon size={32} />, title: 'Luxury Hostels', desc: 'Comfortable living spaces for students.' },
               { icon: <Bus size={32} />, title: 'Transportation', desc: 'College buses covering all major routes.' },
               { icon: <Dumbbell size={32} />, title: 'Fitness Center', desc: 'Fully equipped modern gymnasium.' },
               { icon: <Palette size={32} />, title: 'Arts Studios', desc: 'Creative spaces for design and media.' }

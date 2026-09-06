@@ -12,11 +12,11 @@ const detailedCourseData = {
     syllabus: ["Data Structures & Algorithms", "Object-Oriented Programming", "Operating Systems", "Web Development", "Artificial Intelligence Basics"],
     careers: ["Software Developer", "Systems Analyst", "Database Administrator", "Web Engineer"]
   },
-  "B.Sc. Data Science": {
-    description: "Learn to extract meaningful insights from vast amounts of data. This cutting-edge program blends mathematics, statistics, and computer science.",
-    eligibility: "10+2 with Mathematics/Statistics, minimum 60% aggregate.",
-    syllabus: ["Statistical Methods", "Machine Learning", "Data Visualization", "Big Data Analytics", "Python & R Programming"],
-    careers: ["Data Scientist", "Data Analyst", "Machine Learning Engineer", "Business Intelligence Analyst"]
+  "B.Sc. Artificial Inteligence": {
+    description: "Build intelligent systems that can learn, reason, and solve real-world problems through a blend of programming, mathematics, and machine learning.",
+    eligibility: "10+2 with Mathematics or Computer Science, minimum 55% aggregate.",
+    syllabus: ["Python Programming", "Machine Learning", "Neural Networks", "Natural Language Processing", "Computer Vision"],
+    careers: ["AI Engineer", "Machine Learning Engineer", "Data Analyst", "Computer Vision Developer"]
   },
   "B.Sc. Botany": {
     description: "Explore the fascinating science of plant life. This program offers in-depth knowledge of plant biology, genetics, ecology, and conservation.",
@@ -68,7 +68,7 @@ function CoursePage({ data }) {
   // Course Images Map
   const courseImages = {
     "B.Sc. Computer Science": "/courses/course_cs.png",
-    "B.Sc. Data Science": "/courses/course_data.png",
+    "B.Sc. Artificial Inteligence": "/courses/course_data.png",
     "B.Sc. Botany": "/courses/course_botany.png",
     "B.Sc. Chemistry": "/courses/course_chem.png",
     "B.Com. General": "/courses/course_bcom.png",
@@ -78,7 +78,7 @@ function CoursePage({ data }) {
   // Custom Accents based on course
   const courseColors = {
     "B.Sc. Computer Science": "#3b82f6", // Blue
-    "B.Sc. Data Science": "#06b6d4", // Cyan
+    "B.Sc. Artificial Inteligence": "#06b6d4", // Cyan
     "B.Sc. Botany": "#10b981", // Green
     "B.Sc. Chemistry": "#ec4899", // Pink
     "B.Com. General": "#f59e0b", // Amber
