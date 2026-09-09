@@ -196,6 +196,14 @@
       "department": "Telugu",
       "experience": "18 Yrs",
       "image": "faculty15.jpeg"
+    },
+  {
+      "id": 20,
+      "name": "P.Naresh",
+      "designation": "Office-Head",
+      "department": "Administration",
+      "experience": "13 Yrs",
+      "image": "faculty15.jpeg"
     }
   ]
 }

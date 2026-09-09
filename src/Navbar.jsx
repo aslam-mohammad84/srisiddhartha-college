@@ -19,6 +19,7 @@ function Navbar({ data }) {
   return (
     <>
       <motion.nav 
+        className="site-nav"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -28,17 +29,17 @@ function Navbar({ data }) {
           left: 0,
           right: 0,
           zIndex: 1000,
-          background: 'rgba(255, 255, 255, 0.85)', // Light theme glass
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-          padding: '1rem 0'
+          background: 'rgba(7, 17, 31, 0.78)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.18)',
+          padding: 0
         }}
       >
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="container nav-main-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           
           {/* Logo */}
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'var(--text-primary)', fontWeight: 'bold', fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: '#ffffff', fontWeight: 'bold', fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
             <img src="/logo.png" alt="Sri Siddhartha Logo" style={{ width: 50, height: 50, borderRadius: '50%', objectFit: 'cover' }} />
             Sri Siddhartha Degree College
           </Link>

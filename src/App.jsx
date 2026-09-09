@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Home';
 import CoursePage from './CoursePage';
-import CustomCursor from './CustomCursor';
 import Navbar from './Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from "react";
@@ -31,7 +30,6 @@ function App() {
         <span className="site-loader-line" aria-hidden="true"><i /></span>
       </div>
       <Navbar data={data} />
-      <CustomCursor />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home data={data} />} />

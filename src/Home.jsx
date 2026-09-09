@@ -239,16 +239,15 @@ function Home({ data }) {
       style={{ overflow: 'hidden' }}
     >
       {/* Hero Section */}
-      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '140px' }}>
+      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '100px' }}>
         
         <motion.div 
           className="container hero-container"
-          style={{ y: yHero, opacity: opacityHero, zIndex: 10, position: 'relative', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '4rem' }}
+          style={{ y: yHero, opacity: opacityHero, zIndex: 10, position: 'relative', display: 'grid', gridTemplateColumns: 'minmax(0, 45fr) minmax(0, 55fr)', alignItems: 'center', gap: '3rem' }}
         >
           {/* Left Text Column */}
           <motion.div
             className="hero-text-col"
-            style={{ flex: '1 1 500px' }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -256,10 +255,10 @@ function Home({ data }) {
             <div style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(99, 102, 241, 0.1)', border: '1px solid var(--accent-color)', borderRadius: '30px', color: 'var(--accent-color)', fontWeight: 600, marginBottom: '1.5rem', fontSize: '0.9rem' }}>
               Established {college.established}
             </div>
-            <h1 style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem' }}>
+            <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.08, marginBottom: '1.25rem' }}>
               <span className="text-gradient">{college.name}</span>
             </h1>
-            <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '2rem' }}>
               {college.vision}
             </p>
             <div className="hero-tags" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -272,39 +271,6 @@ function Home({ data }) {
             </div>
           </motion.div>
 
-          {/* Right Image Column */}
-          <motion.div
-            style={{ flex: '1 1 400px', position: 'relative' }}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="hero-image-col" style={{ position: 'relative', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(79, 70, 229, 0.25)', height: '600px', width: '100%' }}>
-              <img 
-                src="/hero_section_bg.png" 
-                alt="Campus" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} 
-              />
-              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)' }} />
-            </div>
-            
-            {/* Decorative Floating Element */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              style={{ position: 'absolute', bottom: '-20px', left: '-20px', background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '20px', boxShadow: 'var(--glass-shadow)', backdropFilter: 'var(--glass-blur)' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                  <Users size={24} />
-                </div>
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-primary)' }}>Premium Education</h4>
-                  <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Join the community</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </section>
 
@@ -377,12 +343,10 @@ function Home({ data }) {
                   whileHover={{ y: -12, scale: 1.03 }}
                   style={{ '--course-color': color }}
                 >
-                  {/* Course Image Header */}
                   <div className="programme-image-wrap">
-                    <img src={imagePath} alt={prog.name} className="programme-image" />
-                    <span className="programme-number">0{i + 1}</span>
+                    <img src={imagePath} alt="" className="programme-image" />
                   </div>
-                  
+
                   {/* Text Content */}
                   <div className="programme-content">
                     <h3>{prog.name}</h3>
@@ -629,13 +593,14 @@ function Home({ data }) {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: '#0f172a', color: 'white', padding: '4rem 0 2rem 0' }}>
+      <footer className="site-footer">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+          <div className="footer-grid">
             <div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>{college.name}</h3>
-              <p style={{ color: '#94a3b8', marginBottom: '1.5rem' }}>Empowering students with knowledge, skills, and values to excel in their chosen fields.</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div className="footer-brand-mark"><img src="/logo.png" alt="" /></div>
+              <h3 className="footer-title">{college.name}</h3>
+              <p className="footer-copy">Empowering students with knowledge, skills, and values to excel in their chosen fields.</p>
+              <div className="footer-contact-list">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8' }}>
                   <MapPin size={20} color="var(--accent-color)" />
                   <span>{college.location}</span>
@@ -652,8 +617,8 @@ function Home({ data }) {
             </div>
 
             <div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Quick Links</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <h3 className="footer-heading">Quick Links</h3>
+              <div className="footer-links">
                 <a href="#programmes" style={{ color: '#94a3b8', textDecoration: 'none' }}>Our Programmes</a>
                 <a href="#faculty" style={{ color: '#94a3b8', textDecoration: 'none' }}>Meet the Faculty</a>
                 <a href="#student-life" style={{ color: '#94a3b8', textDecoration: 'none' }}>Student Life</a>
@@ -674,8 +639,8 @@ function Home({ data }) {
             </div>
             
             <div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Location</h3>
-              <div style={{ width: '100%', height: '250px', borderRadius: '16px', overflow: 'hidden' }}>
+              <h3 className="footer-heading">Visit Our Campus</h3>
+              <div className="footer-map">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.7731714331717!2d80.84825217502075!3d16.787957084000585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3675cc56a415e3%3A0x6661f274a24e6196!2sSri%20Siddhartha%20Degree%20College%20Of%20Science%20%26%20Computers!5e0!3m2!1sen!2sin!4v1783092745109!5m2!1sen!2sin" 
                   width="100%" 
@@ -690,7 +655,7 @@ function Home({ data }) {
             </div>
           </div>
           
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', textAlign: 'center', color: '#64748b', fontSize: '0.9rem' }}>
+          <div className="footer-bottom">
             &copy; {new Date().getFullYear()} {college.name}. All Rights Reserved.
           </div>
         </div>
