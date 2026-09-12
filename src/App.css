@@ -364,6 +364,11 @@
   text-align: center;
 }
 
+.faculty-header h2,
+.faculty-header p {
+  color: #f5f1e8;
+}
+
 
 .faculty-badge {
   display: inline-flex;

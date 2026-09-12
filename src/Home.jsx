@@ -239,38 +239,68 @@ function Home({ data }) {
       style={{ overflow: 'hidden' }}
     >
       {/* Hero Section */}
-      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '100px' }}>
-        
+      <section className="hero-section" aria-label="Sri Siddhartha Degree College hero section">
         <motion.div 
           className="container hero-container"
-          style={{ y: yHero, opacity: opacityHero, zIndex: 10, position: 'relative', display: 'grid', gridTemplateColumns: 'minmax(0, 45fr) minmax(0, 55fr)', alignItems: 'center', gap: '3rem' }}
+          style={{ y: yHero, opacity: opacityHero, zIndex: 10 }}
         >
-          {/* Left Text Column */}
           <motion.div
             className="hero-text-col"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(99, 102, 241, 0.1)', border: '1px solid var(--accent-color)', borderRadius: '30px', color: 'var(--accent-color)', fontWeight: 600, marginBottom: '1.5rem', fontSize: '0.9rem' }}>
-              Established {college.established}
+            <div className="hero-badges">
+              <span className="hero-badge hero-badge-primary">ESTD 2001</span>
+              <span className="hero-badge hero-badge-secondary">Knowledge Shapes Better Tomorrows</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.08, marginBottom: '1.25rem' }}>
-              <span className="text-gradient">{college.name}</span>
+
+            <h1>
+              <span className="hero-title-line">Sri Siddhartha</span>
+              <span className="hero-title-line accent">Degree College</span>
+              <span className="hero-tagline">NUZVID</span>
             </h1>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '2rem' }}>
+
+            <p className="hero-copy">
               {college.vision}
             </p>
-            <div className="hero-tags" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
-                <MapPin size={20} color="var(--accent-color)" /> {college.location}
+
+            <div className="hero-actions">
+              <button className="primary-btn">Explore Courses <span aria-hidden="true">→</span></button>
+              <button className="secondary-btn"><span className="play-icon">▶</span> Watch Video</button>
+            </div>
+
+            <div className="hero-stats">
+              <div className="stat-box">
+                <strong>2000+</strong>
+                <span>Students</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
-                <Award size={20} color="var(--accent-color)" /> {college.affiliatedTo}
+              <div className="stat-box">
+                <strong>20+</strong>
+                <span>Programs</span>
               </div>
+              <div className="stat-box">
+                <strong>Experienced</strong>
+                <span>Faculty</span>
+              </div>
+              <div className="stat-box">
+                <strong>Brighter</strong>
+                <span>Future</span>
+              </div>
+            </div>
+
+            <div className="hero-meta-row">
+              <span><span className="meta-pin">◉</span> Nuzvid, Krishna District, Andhra Pradesh, India</span>
+              <span><span className="meta-pin">◍</span> Affiliated to Krishna University, Machilipatnam</span>
             </div>
           </motion.div>
 
+          <motion.div
+            className="hero-visual"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          />
         </motion.div>
       </section>
 
@@ -601,18 +631,18 @@ function Home({ data }) {
               <h3 className="footer-title">{college.name}</h3>
               <p className="footer-copy">Empowering students with knowledge, skills, and values to excel in their chosen fields.</p>
               <div className="footer-contact-list">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8' }}>
+                <a href="https://maps.google.com/?q=Sri+Siddhartha+Degree+College+Nuzvid" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8', textDecoration: 'none' }}>
                   <MapPin size={20} color="var(--accent-color)" />
                   <span>{college.location}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8' }}>
+                </a>
+                <a href="tel:+917794820397" style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8', textDecoration: 'none' }}>
                   <Phone size={20} color="var(--accent-color)" />
                   <span>{college.phone}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8' }}>
+                </a>
+                <a href="mailto:srisiddharthadegree@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8', textDecoration: 'none' }}>
                   <Mail size={20} color="var(--accent-color)" />
                   <span>{college.email}</span>
-                </div>
+                </a>
               </div>
             </div>
 

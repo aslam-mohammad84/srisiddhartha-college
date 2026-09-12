@@ -23,36 +23,22 @@ function Navbar({ data }) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          background: 'rgba(7, 17, 31, 0.78)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.18)',
-          padding: 0
-        }}
       >
-        <div className="container nav-main-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          
-          {/* Logo */}
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: '#ffffff', fontWeight: 'bold', fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-            <img src="/logo.png" alt="Sri Siddhartha Logo" style={{ width: 50, height: 50, borderRadius: '50%', objectFit: 'cover' }} />
-            Sri Siddhartha Degree College
+        <div className="container nav-main-row">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="brand-mark" aria-label="Sri Siddhartha Degree College home">
+            <img src="/logo.png" alt="Sri Siddhartha Logo" />
+            <div className="brand-text">
+              <span className="brand-title">Sri Siddhartha Degree College</span>
+              <span className="brand-meta">NUZVID | ESTD 2001</span>
+            </div>
           </Link>
 
-          {/* Desktop Links */}
           <div className="desktop-nav">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-              {/* Courses Dropdown */}
+            <div className="nav-menu">
+              <button className="nav-link active">Home</button>
+
               <div className="courses-dropdown-container">
-                <div 
-                  className="nav-link" 
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}
-                >
+                <div className="nav-link nav-link-with-icon">
                   Courses <ChevronDown size={16} />
                 </div>
                 <div className="courses-dropdown-menu">
@@ -62,26 +48,7 @@ function Navbar({ data }) {
                       <Link 
                         key={prog.id} 
                         to={`/course/${courseSlug}`}
-                        style={{ 
-                          textDecoration: 'none', 
-                          color: 'var(--text-secondary)', 
-                          padding: '0.8rem 1rem', 
-                          borderRadius: '10px',
-                          fontSize: '0.9rem',
-                          fontWeight: 500,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'var(--bg-secondary)';
-                          e.currentTarget.style.color = 'var(--text-primary)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'transparent';
-                          e.currentTarget.style.color = 'var(--text-secondary)';
-                        }}
+                        className="dropdown-link"
                       >
                         {prog.name}
                         <ArrowRight size={14} opacity={0.5} />
@@ -93,25 +60,18 @@ function Navbar({ data }) {
 
               {isHome && <button onClick={() => scrollTo('faculty')} className="nav-link">Faculty</button>}
               {isHome && <button onClick={() => scrollTo('student-life')} className="nav-link">Student Life</button>}
-              
+              {isHome && <button className="nav-link">About</button>}
+              {isHome && <button className="nav-link">Contact</button>}
               {!isHome && (
-                <Link to="/" style={{ textDecoration: 'none' }}>
-                  <button className="nav-btn" style={{ background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-primary)' }}>
-                    &larr; Back to Campus
-                  </button>
+                <Link to="/" className="back-link">
+                  <button className="nav-btn nav-btn-secondary">&larr; Back to Campus</button>
                 </Link>
               )}
-              
-              <button className="nav-btn">Apply Now</button>
+              <button className="nav-btn">Apply Now <span aria-hidden="true">→</span></button>
             </div>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button 
-            className="mobile-menu-btn" 
-            onClick={() => setIsMobileMenuOpen(true)}
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
-          >
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
             <Menu size={28} />
           </button>
         </div>
